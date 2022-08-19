@@ -1,3 +1,6 @@
+/* the code is a bit clumsy at almost all the places */
+/* apologies! */
+
 :root {
     --primary-dark: #333;
     --primary-light: #ededed;
@@ -88,6 +91,7 @@ input[type='color']::-webkit-color-swatch {
 button {
     padding: 10px 20px;
     font-size: 13px;
+    border-radius: 5px;
 }
 
 button:hover {
@@ -99,6 +103,6 @@ button:hover {
 }
 
 button.active {
-    background-color: var(--primary-dark);
+    background-color: rgb(94, 155, 207);
     color: var(--primary-light);
 }

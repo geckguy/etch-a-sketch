@@ -119,4 +119,5 @@ sizeBtn.onclick = () => changeSize(sizeValue.value)
 
 window.onload = () => {
     createGrid(DEFAULT_SIZE)
+    activateButton(DEFAULT_MODE)
 }
