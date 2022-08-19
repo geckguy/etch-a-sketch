@@ -6,15 +6,55 @@ let currentColor = DEFAULT_COLOR
 let currentMode = DEFAULT_MODE
 let currentSize = DEFAULT_SIZE
 
-const container = document.querySelector(".grid-container")
+
 
 function clearGrid() {
-    grid.innerHTML = ""
+    container.innerHTML = ""
 }
 
 function setCurrentColor(color) {
     currentColor = color
 }
+
+function setCurrentSize(size) {
+    currentSize = size
+}
+
+function setCurrentMode(mode) {
+    activateButton(mode)
+    currentMode = mode
+}
+
+const colorPicker = document.querySelector("#colorPicker")
+const colorBtn = document.querySelector("#colorBtn")
+const rainbowBtn = document.querySelector("#rainbowBtn")
+const eraserBtn = document.querySelector("#eraserBtn")
+const clearBtn = document.querySelector("#clearBtn")
+const sizeValue = document.querySelector("#sizeValue")
+const container = document.querySelector(".grid-container")
+
+
+colorPicker.oninput = (e) => setCurrentColor(e.target.value)
+colorBtn.onclick = (e) => setCurrentMode('color')
+rainbowBtn.onclick = (e) => setCurrentMode('rainbow')
+eraserBtn.onclick = (e) => setCurrentMode('eraser')
+clearBtn.onlclick = (e) => reloadGrid()
+
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
+function changeSize(value) {
+    setCurrentSize(value)
+    updateSizeValue(value)
+    reloadGrid()
+}
+
+function reloadGrid() {
+    clearGrid()
+    createGrid(currentSize)
+}
+
 
 function createGrid(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
