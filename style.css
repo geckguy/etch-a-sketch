@@ -1,0 +1,45 @@
+:root {
+    --primary-dark: #333;
+    --primary-light: #ededed;
+    --secondary-light: #fefefe;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Silkscreen', cursive;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.header {
+    padding: 20% 0;
+}
+
+.main-heading {
+    color: rgb(94, 155, 207);
+    text-align: center;
+    font-size: 38px;
+}
+
+input[type="text"] {
+    width: 7%;
+}
+
+.grid-container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background-color: var(--secondary-light);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.grid-element {
+    user-select: none;
+}

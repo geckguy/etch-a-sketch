@@ -7,14 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>etch-a-sketch</title>
 
-    <script src="/app.js"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 
 </head>
 
 <body>
+    <header>
+        <h1 class="main-heading">Etch-a-Sketch</h1>
+    </header>
+    <main class="main">
+        <div class="settings">
+            <input type="color" name="colorPicker" id="colorPicker">
+            <button id="colorBtn">Color</button>
+            <button id="rainbowBtn">Rainbow</button>
+            <button id="eraserBtn">Eraser</button>
+            <button id="clearBtn">Clear</button>
+            <div class="sizeDisplay"></div>
+            <input type="text" id="sizeValue" class="size-Value">
+        </div>
+        <div class="grid-container"></div>
 
+    </main>
+    <script src="/app.js"></script>
 </body>
 
 </html>
