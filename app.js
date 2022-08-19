@@ -14,6 +14,7 @@ const eraserBtn = document.querySelector("#eraserBtn")
 const clearBtn = document.querySelector("#clearBtn")
 const sizeValue = document.querySelector("#sizeValue")
 const container = document.querySelector(".grid-container")
+const sizeDisplay = document.querySelector(".sizeDisplay")
 
 
 
@@ -40,6 +41,8 @@ function changeSize(value) {
     setCurrentSize(value)
     updateSizeValue(value)
     reloadGrid()
+    sizeDisplay.innerHTML = `${value}x${value}`
+    sizeValue.value = ""
 }
 
 function reloadGrid() {
@@ -47,6 +50,9 @@ function reloadGrid() {
     createGrid(currentSize)
 }
 
+function updateSizeValue(value) {
+    sizeValue.innerHTML = `${value} x ${value}`
+}
 
 
 let mouseDown = false
@@ -84,12 +90,31 @@ function changeColor(e) {
 }
 
 
+function activateButton(newMode) {
+    if (currentMode === 'rainbow') {
+        rainbowBtn.classList.remove('active')
+    } else if (currentMode === 'color') {
+        colorBtn.classList.remove('active')
+    } else if (currentMode === 'eraser') {
+        eraserBtn.classList.remove('active')
+    }
+
+    if (newMode === 'rainbow') {
+        rainbowBtn.classList.add('active')
+    } else if (newMode === 'color') {
+        colorBtn.classList.add('active')
+    } else if (newMode === 'eraser') {
+        eraserBtn.classList.add('active')
+    }
+}
+
+
 colorPicker.oninput = (e) => setCurrentColor(e.target.value)
 colorBtn.onclick = () => setCurrentMode('color')
 rainbowBtn.onclick = () => setCurrentMode('rainbow')
 eraserBtn.onclick = () => setCurrentMode('eraser')
 clearBtn.onclick = () => reloadGrid()
-
+sizeBtn.onclick = () => changeSize(sizeValue.value)
 
 
 window.onload = () => {
