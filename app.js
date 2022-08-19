@@ -7,6 +7,17 @@ let currentMode = DEFAULT_MODE
 let currentSize = DEFAULT_SIZE
 
 
+const colorPicker = document.querySelector("#colorPicker")
+const colorBtn = document.querySelector("#colorBtn")
+const rainbowBtn = document.querySelector("#rainbowBtn")
+const eraserBtn = document.querySelector("#eraserBtn")
+const clearBtn = document.querySelector("#clearBtn")
+const sizeValue = document.querySelector("#sizeValue")
+const container = document.querySelector(".grid-container")
+
+
+
+
 
 function clearGrid() {
     container.innerHTML = ""
@@ -25,25 +36,6 @@ function setCurrentMode(mode) {
     currentMode = mode
 }
 
-const colorPicker = document.querySelector("#colorPicker")
-const colorBtn = document.querySelector("#colorBtn")
-const rainbowBtn = document.querySelector("#rainbowBtn")
-const eraserBtn = document.querySelector("#eraserBtn")
-const clearBtn = document.querySelector("#clearBtn")
-const sizeValue = document.querySelector("#sizeValue")
-const container = document.querySelector(".grid-container")
-
-
-colorPicker.oninput = (e) => setCurrentColor(e.target.value)
-colorBtn.onclick = (e) => setCurrentMode('color')
-rainbowBtn.onclick = (e) => setCurrentMode('rainbow')
-eraserBtn.onclick = (e) => setCurrentMode('eraser')
-clearBtn.onlclick = (e) => reloadGrid()
-
-let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
-
 function changeSize(value) {
     setCurrentSize(value)
     updateSizeValue(value)
@@ -54,6 +46,12 @@ function reloadGrid() {
     clearGrid()
     createGrid(currentSize)
 }
+
+
+
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 
 function createGrid(size) {
@@ -86,7 +84,11 @@ function changeColor(e) {
 }
 
 
-
+colorPicker.oninput = (e) => setCurrentColor(e.target.value)
+colorBtn.onclick = () => setCurrentMode('color')
+rainbowBtn.onclick = () => setCurrentMode('rainbow')
+eraserBtn.onclick = () => setCurrentMode('eraser')
+clearBtn.onclick = () => reloadGrid()
 
 
 
